@@ -9,6 +9,11 @@ let cards: any = [
     "2D", "D3", "4D", "5D", "6D", "7D", "8D", "9D", "10D", "JD", "QD", "KD", "AD"
 ];
 
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
 function shuffleArray(array: any) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
@@ -34,7 +39,7 @@ class playerOne {
     position: string;
 
     constructor() {
-        this.name = "Peter";
+        this.name = "";
         this.cards = playerOneCards;
         this.isTurn = true;
         this.position = "North"
@@ -48,7 +53,7 @@ class playerTwo {
     position: string;
 
     constructor() {
-        this.name = "Erika";
+        this.name = "";
         this.cards = playerTwoCards;
         this.isTurn = false;
         this.position = "East"
@@ -62,7 +67,7 @@ class playerThree {
     position: string;
 
     constructor() {
-        this.name = "Robert";
+        this.name = "";
         this.cards = playerThreeCards;
         this.isTurn = false;
         this.position = "South"
@@ -76,7 +81,7 @@ class playerFour {
     position: string;
 
     constructor() {
-        this.name = "Hannah";
+        this.name = "";
         this.cards = playerFourCards;
         this.isTurn = false;
         this.position = "West"
@@ -89,11 +94,44 @@ let playerOneActual = new playerOne();
 let playerTwoActual = new playerTwo();
 let playerThreeActual = new playerThree();
 let playerFourActual = new playerFour();
+let teamOne = [ playerOneActual, playerTwoActual ]
+let teamTwo = [ playerThreeActual, playerFourActual ]
+let gameRunning: boolean = false
+let passCount: number = 0;
+let bid: string = "";
 
 function gameStatus() {
     console.log(playerOneActual)
     console.log(playerTwoActual)
     console.log(playerThreeActual)
     console.log(playerFourActual)
-} gameStatus();
+}
 
+if (gameRunning) {
+    gameStatus();
+}
+
+// FAILED ATTEMPT AT GETTING USER INPUT TO ASSIGN NAMES
+// function getNames() {
+//     readline.question('Hello Player One, What is your name?', name => {
+//         console.log(`Hey there ${name}!`);
+//         playerOneActual.name = name;
+//         readline.close();
+//         });
+//         readline.question('Hello Player One, What is your name?', name => {
+//         console.log(`Hey there ${name}!`);
+//         playerTwoActual.name = name;
+//         readline.close();
+//         });
+//         readline.question('Hello Player One, What is your name?', name => {
+//         console.log(`Hey there ${name}!`);
+//         playerThreeActual.name = name;
+//         readline.close();
+//         });
+//         readline.question('Hello Player One, What is your name?', name => {
+//         console.log(`Hey there ${name}!`);
+//         playerFourActual.name = name;
+//         readline.close();
+//         });
+//         gameRunning = true;
+//     }
