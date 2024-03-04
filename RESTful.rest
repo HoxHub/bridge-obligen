@@ -1,0 +1,23 @@
+// Bids need to be made in order. The game automatically ends when bidFour is sent to the server.
+
+POST http://localhost:3000/startGame
+
+###
+
+POST http://localhost:3000/restartGame
+
+###
+
+POST http://localhost:3000/bidOne
+
+###
+
+POST http://localhost:3000/bidTwo
+
+###
+
+POST http://localhost:3000/bidThree
+
+###
+
+POST http://localhost:3000/bidFour
